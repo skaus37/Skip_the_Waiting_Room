@@ -6,16 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".create_account">
 
+    <TextView
+        android:id="@+id/infoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fill out your information:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@id/firstName"
+        app:layout_constraintStart_toStartOf="@id/firstName" />
+
+    <Button
+        android:id="@+id/createAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Create account"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/role" />
+
+    <Button
+        android:id="@+id/backBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goBack"
+        android:text="BACK"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/firstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="80dp"
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/backBtn" />
 
     <EditText
         android:id="@+id/lastName"
@@ -24,9 +54,9 @@
         android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/firstName" />
+        app:layout_constraintStart_toStartOf="@id/firstName"
+        app:layout_constraintTop_toBottomOf="@id/firstName"
+        tools:layout_constraintRight_toRightOf="@id/firstName" />
 
     <EditText
         android:id="@+id/usernameEnter"
@@ -36,7 +66,7 @@
         android:hint="Username"
         android:inputType="textPersonName"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/firstName"
         app:layout_constraintTop_toBottomOf="@id/lastName" />
 
     <EditText
@@ -47,17 +77,16 @@
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/firstName"
         app:layout_constraintTop_toBottomOf="@id/usernameEnter" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
+        android:id="@+id/chooseAcc"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="Choose type of account:"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/firstName"
         app:layout_constraintTop_toBottomOf="@id/passwordEnter" />
 
     <RadioGroup
@@ -66,8 +95,8 @@
         android:layout_height="wrap_content"
         android:checkedButton="@id/patient"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView4">
+        app:layout_constraintStart_toStartOf="@id/firstName"
+        app:layout_constraintTop_toBottomOf="@id/chooseAcc">
 
         <RadioButton
             android:id="@+id/patient"
