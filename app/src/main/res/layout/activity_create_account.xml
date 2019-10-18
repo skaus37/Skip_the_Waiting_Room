@@ -20,6 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:onClick="newAccount"
         android:text="Create account"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -62,6 +63,7 @@
         android:id="@+id/usernameEnter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
@@ -85,6 +87,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:clickable="false"
         android:text="Choose type of account:"
         app:layout_constraintStart_toStartOf="@id/firstName"
         app:layout_constraintTop_toBottomOf="@id/passwordEnter" />
@@ -102,7 +105,8 @@
             android:id="@+id/patient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Patient" />
+            android:text="Patient"
+            android:checked="false"/>
 
         <RadioButton
             android:id="@+id/employee"
