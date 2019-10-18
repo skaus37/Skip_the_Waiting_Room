@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "903719479715",
+    "firebase_url": "https://walk-in-app-b04df.firebaseio.com",
+    "project_id": "walk-in-app-b04df",
+    "storage_bucket": "walk-in-app-b04df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903719479715:android:70e65fc885e92154d95216",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903719479715-63sbhn4jh846pjchkf2askmpinr5oopd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfKFP5g7J8QHa72iyxSI6-hqR0VPrLOGY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903719479715-63sbhn4jh846pjchkf2askmpinr5oopd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
