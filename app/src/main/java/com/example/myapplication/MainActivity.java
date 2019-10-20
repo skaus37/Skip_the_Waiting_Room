@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private String userName, passWord;
@@ -15,7 +16,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
+
 
     public void createAccountClick(View view) {
         Intent intent = new Intent (this, create_account.class);
