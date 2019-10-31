@@ -68,7 +68,7 @@
         android:fontFamily="sans-serif-light"
         android:gravity="center"
         android:hint="Email"
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
         android:textColorHighlight="#00CED1"
         android:textColorLink="#00ced1"
         android:textCursorDrawable="@android:color/black"
@@ -112,4 +112,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.748"
         tools:text="LOG IN" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

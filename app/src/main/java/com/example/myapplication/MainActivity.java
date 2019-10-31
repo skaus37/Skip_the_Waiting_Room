@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
+        //insure that if you are on this page you are signed out
+        FirebaseAuth.getInstance().signOut();
+
     }
 
 
@@ -64,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 Toast.makeText(this, task.getException().toString(), Toast.LENGTH_SHORT).show();
                                 return ;
-                                
+
                             }
 
                             // ...
@@ -76,7 +79,5 @@ public class MainActivity extends AppCompatActivity {
         else{
             Toast.makeText(this, "You need to enter a valid username and a password", Toast.LENGTH_SHORT).show();
         }*/
-
     }
-
 }
