@@ -15,12 +15,11 @@
         android:text="Skip the waiting room."
         android:textColor="#FFF"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@id/username"
+        app:layout_constraintBottom_toTopOf="@+id/welcome2"
         app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.706" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/welcome2"
@@ -31,34 +30,11 @@
         android:textColor="#FFF"
         android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/username"
+        app:layout_constraintBottom_toTopOf="@+id/email_Login"
         app:layout_constraintHorizontal_bias="0.366"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.518" />
-
-    <EditText
-        android:id="@+id/username"
-        style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
-        android:layout_width="262dp"
-        android:layout_height="44dp"
-        android:background="@drawable/roundtext"
-        android:ems="10"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:textColorHighlight="#00CED1"
-        android:textColorLink="#00CED1"
-        android:textCursorDrawable="@android:color/black"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.382"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/password"
@@ -83,7 +59,27 @@
         app:layout_constraintVertical_bias="0.612" />
 
 
-
+    <EditText
+        android:id="@+id/email_Login"
+        android:layout_width="262dp"
+        android:layout_height="44dp"
+        android:background="@drawable/roundtext"
+        android:ems="10"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:hint="Email"
+        android:inputType="textPassword"
+        android:textColorHighlight="#00CED1"
+        android:textColorLink="#00ced1"
+        android:textCursorDrawable="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.402"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.478" />
 
     <Button
         android:id="@+id/createAccount"
