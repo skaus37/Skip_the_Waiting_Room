@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.print.PrintDocumentAdapter;
 import android.util.Log;
 import android.view.View;
 import android.os.Bundle;
@@ -17,6 +18,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class create_account extends AppCompatActivity {
 
@@ -31,6 +36,9 @@ public class create_account extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
+
+        //role is by default patient
+        role = "patient";
 
 
 
@@ -90,7 +98,8 @@ public class create_account extends AppCompatActivity {
         firstName = firstText.getText().toString();
         lastName = lastText.getText().toString();
         email = emailText.getText().toString();
-            //role = rb.getText().toString();
+        //role = rb.getText().toString();
+        //i took this out and added method... might not be the right decision
 
         if (userName.matches("") || passWord.matches("") || firstName.matches("") || lastName.matches("") || email.matches( "")) {
             Toast.makeText(this, "You need to fill all of your information in", Toast.LENGTH_SHORT).show();
@@ -106,25 +115,28 @@ public class create_account extends AppCompatActivity {
 
                             //add user information to firebase
 
-                            /*
+
                             // Create a Map to store the data we want to set
                             Map<String, Object> docData = new HashMap<>();
-                            docData.put("name", "Los Angeles");
-                            docData.put("state", "CA");
-                            docData.put("country", "USA");
-                            docData.put("regions", Arrays.asList("west_coast", "socal"));
+                            docData.put("accountType",role );
+                            docData.put("firstName", firstName);
+                            docData.put("lastName", lastName);
+                            //i do not think we need to store this....will confire later
+                            //docData.put("password", passWord);
 // Add a new document (asynchronously) in collection "cities" with id "LA"
-                            ApiFuture<WriteResult> future = db.collection("cities").document("LA").set(docData);
+                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+                            db.collection("users").document(email).set(docData);
 // ...
 // future.get() blocks on response
-                            System.out.println("Update time : " + future.get().getUpdateTime());
+                            //System.out.println("Update time : " + future.get().getUpdateTime());
+                            //dont think we need this
 
 
 
 
 
 
-                            */
+
 
                             //if sign in is success go to next page
                             Intent intent = new Intent(this, LogIn.class);
