@@ -120,6 +120,7 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:fontFamily="sans-serif-light"
+            android:onClick="onRadioButtonClicked"
             android:text="Patient" />
 
         <RadioButton
@@ -127,6 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
+            android:onClick="onRadioButtonClicked"
             android:text="Employee" />
 
     </RadioGroup>

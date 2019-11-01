@@ -52,6 +52,28 @@ public class create_account extends AppCompatActivity {
         startActivity(intent);
     }
 
+    //Assigns a value to the role
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.patient:
+                if (checked)
+                    // set role value to patient
+                    role = "patient";
+                    break;
+            case R.id.employee:
+                if (checked)
+                    // set role value to employee
+                    role ="employee";
+                    break;
+        }
+    }
+
+
+
     public void newAccount(View view) {
         EditText userText = (EditText)findViewById(R.id.usernameEnter);
         EditText passText = (EditText)findViewById(R.id.passwordEnter);
@@ -81,6 +103,28 @@ public class create_account extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
                             //if it works a new email should show up in the firebase authentication page
+
+                            //add user information to firebase
+
+                            /*
+                            // Create a Map to store the data we want to set
+                            Map<String, Object> docData = new HashMap<>();
+                            docData.put("name", "Los Angeles");
+                            docData.put("state", "CA");
+                            docData.put("country", "USA");
+                            docData.put("regions", Arrays.asList("west_coast", "socal"));
+// Add a new document (asynchronously) in collection "cities" with id "LA"
+                            ApiFuture<WriteResult> future = db.collection("cities").document("LA").set(docData);
+// ...
+// future.get() blocks on response
+                            System.out.println("Update time : " + future.get().getUpdateTime());
+
+
+
+
+
+
+                            */
 
                             //if sign in is success go to next page
                             Intent intent = new Intent(this, LogIn.class);
