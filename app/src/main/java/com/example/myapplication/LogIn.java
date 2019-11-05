@@ -11,10 +11,16 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserInfo;
+
+import java.util.LinkedList;
+import java.util.List;
 
 
 public class LogIn extends AppCompatActivity {
 
+
+    private List<? extends UserInfo> providerData.;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,9 +37,12 @@ public class LogIn extends AppCompatActivity {
 
         FirebaseUser user = mAuth.getCurrentUser();
         String email = user.getEmail();
+        String firstName = user.getDisplayName();
+        String role;
+        List<? extends UserInfo> providerData.= user.getProviderData();
 
 
-        textView.setText("text you want to display "+email);
+        textView.setText(providerData..get(0));
 
 
         Button logOutButton = findViewById(R.id.logOutButton);
