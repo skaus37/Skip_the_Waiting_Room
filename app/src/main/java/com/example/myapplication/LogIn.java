@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class LogIn extends AppCompatActivity {
@@ -23,7 +24,16 @@ public class LogIn extends AppCompatActivity {
 
         setContentView(R.layout.log_in);
         TextView textView = (TextView) findViewById(R.id.welcome);
-        textView.setText("text you want to display");
+        //FirebaseUser user = getIntent()("USER");
+        FirebaseAuth mAuth;
+
+        mAuth = FirebaseAuth.getInstance();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        String email = user.getEmail();
+
+
+        textView.setText("text you want to display "+email);
 
 
         Button logOutButton = findViewById(R.id.logOutButton);
