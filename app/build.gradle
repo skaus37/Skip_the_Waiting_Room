@@ -34,6 +34,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-auth:19.1.0'//i added this -angus
     implementation 'com.google.android.gms:play-services-auth:17.0.0'//also added this
-    implementation 'com.google.firebase:firebase-firestore:21.1.1'//alse added this
+    implementation 'com.google.firebase:firebase-firestore:21.1.1'
+    implementation 'com.google.firebase:firebase-database:19.2.0'//alse added this
 }
 apply plugin: 'com.google.gms.google-services'//i also added this
