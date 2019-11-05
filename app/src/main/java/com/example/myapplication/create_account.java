@@ -25,7 +25,7 @@ import java.util.Map;
 
 public class create_account extends AppCompatActivity {
 
-    private String firstName, lastName, userName, passWord, role ,email;
+    private String firstName, lastName, passWord, role ,email;
 
     private FirebaseAuth mAuth;
 
@@ -83,7 +83,6 @@ public class create_account extends AppCompatActivity {
 
 
     public void newAccount(View view) {
-        EditText userText = (EditText)findViewById(R.id.usernameEnter);
         EditText passText = (EditText)findViewById(R.id.passwordEnter);
         EditText firstText = (EditText)findViewById(R.id.firstName);
         EditText lastText = (EditText)findViewById(R.id.lastName);
@@ -93,7 +92,6 @@ public class create_account extends AppCompatActivity {
         //int id=chooseAcc.getCheckedRadioButtonId();
         //RadioButton rb=(RadioButton) findViewById(id);
 
-        userName = userText.getText().toString();
         passWord = passText.getText().toString();
         firstName = firstText.getText().toString();
         lastName = lastText.getText().toString();
@@ -101,7 +99,7 @@ public class create_account extends AppCompatActivity {
         //role = rb.getText().toString();
         //i took this out and added method... might not be the right decision
 
-        if (userName.matches("") || passWord.matches("") || firstName.matches("") || lastName.matches("") || email.matches( "")) {
+        if (passWord.matches("") || firstName.matches("") || lastName.matches("") || email.matches( "")) {
             Toast.makeText(this, "You need to fill all of your information in", Toast.LENGTH_SHORT).show();
             return; }
         else {
