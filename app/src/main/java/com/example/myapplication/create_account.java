@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -87,6 +88,8 @@ public class create_account extends AppCompatActivity {
         EditText firstText = (EditText)findViewById(R.id.firstName);
         EditText lastText = (EditText)findViewById(R.id.lastName);
         EditText emailText = (EditText)findViewById(R.id.emailEnter);
+        //RadioButton patientBox = (RadioButton)findViewById(R.id.patient);
+        //RadioButton employeeBox = (RadioButton)findViewById((R.id.employee));
 
         //chooseAcc.setOnCheckedChangeListener(new OnCheckedChangeListener()) {
         //int id=chooseAcc.getCheckedRadioButtonId();
@@ -99,56 +102,66 @@ public class create_account extends AppCompatActivity {
         //role = rb.getText().toString();
         //i took this out and added method... might not be the right decision
 
-        if (passWord.matches("") || firstName.matches("") || lastName.matches("") || email.matches( "")) {
-            Toast.makeText(this, "You need to fill all of your information in", Toast.LENGTH_SHORT).show();
-            return; }
-        else {
-
+        if (firstName.matches("")) {
+            Toast.makeText(this, "You must enter a first name", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (firstName.matches("")){
+            Toast.makeText(this, "You must enter a first name", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (lastName.matches("")) {
+            Toast.makeText(this, "You must enter a last name", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (email.matches("")){
+            Toast.makeText(this, "You must enter an email", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (passWord.matches("")) {
+            Toast.makeText(this, "You must enter a password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else{
             //do stuff
-            mAuth.createUserWithEmailAndPassword(email, passWord).addOnCompleteListener((@NonNull Task<AuthResult> task)-> {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            //if it works a new email should show up in the firebase authentication page
+            mAuth.createUserWithEmailAndPassword(email, passWord).addOnCompleteListener((@NonNull Task<AuthResult> task) -> {
+                if (task.isSuccessful()) {
+                    // Sign in success, update UI with the signed-in user's information
+                    FirebaseUser user = mAuth.getCurrentUser();
+                    //if it works a new email should show up in the firebase authentication page
 
-                            //add user information to firebase
+                    //add user information to firebase
 
 
-                            // Create a Map to store the data we want to set
-                            Map<String, Object> docData = new HashMap<>();
-                            docData.put("accountType",role );
-                            docData.put("firstName", firstName);
-                            docData.put("lastName", lastName);
-                            //i do not think we need to store this....will confire later
-                            //docData.put("password", passWord);
+                    // Create a Map to store the data we want to set
+                    Map<String, Object> docData = new HashMap<>();
+                    docData.put("accountType", role);
+                    docData.put("firstName", firstName);
+                    docData.put("lastName", lastName);
+                    //i do not think we need to store this....will confire later
+                    //docData.put("password", passWord);
 // Add a new document (asynchronously) in collection "cities" with id "LA"
-                            FirebaseFirestore db = FirebaseFirestore.getInstance();
-                            db.collection("users").document(email).set(docData);
+                    FirebaseFirestore db = FirebaseFirestore.getInstance();
+                    db.collection("users").document(email).set(docData);
 // ...
 // future.get() blocks on response
-                            //System.out.println("Update time : " + future.get().getUpdateTime());
-                            //dont think we need this
+                    //System.out.println("Update time : " + future.get().getUpdateTime());
+                    //dont think we need this
 
 
+                    //if sign in is success go to next page
+                    Intent intent = new Intent(this, LogIn.class);
+                    startActivity(intent);
 
 
+                } else {
+                    // If sign in fails, display a message to the user.
+                    //output error msg
+                    Toast.makeText(this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+                    return;
 
-
-
-
-                            //if sign in is success go to next page
-                            Intent intent = new Intent(this, LogIn.class);
-                            startActivity(intent);
-
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            //output error msg
-                            Toast.makeText(this, task.getException().toString(), Toast.LENGTH_SHORT).show();
-                            return ;
-
-                        }
-                    });
+                }
+            });
 
 
         }

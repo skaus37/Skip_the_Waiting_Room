@@ -1,31 +1,18 @@
 package com.example.myapplication;
 
-/*
-public class User {
 
-    private String firstName;
-    private String lastName;
-    private String accountType;
+public class Patient extends User {
+
+    public Patient(){
+        super();
+    }
+
+
+    public Patient(String firstName, String lastName, String accountType, String email){
+        super(firstName, lastName, accountType, email);
 
     }
 
-    public User(String firstName, String lastName, String accountType){
-        firstName = firstName;
-        lastName = lastName;
-        accountType = accountType;
-    }
 
-    public String getFirstName(){
-        return firstName;
-    }
-
-    public String getLastName(){
-        return lastName;
-    }
-
-    public String getAccountType(){
-        return accountType;
-    }
 }
 
-*/
