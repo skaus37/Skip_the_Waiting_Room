@@ -48,7 +48,11 @@ public class LogIn extends AppCompatActivity {
         database.collection("users").document(email).get().addOnCompleteListener((@NonNull Task<DocumentSnapshot> task)->{
             if (task.isSuccessful()) {
                 String firstName = task.getResult().get("firstName").toString();
-                textView.setText("text you want to display "+firstName);
+                String lastName = task.getResult().get("lastName").toString();
+                String accountType = task.getResult().get("accountType").toString();
+
+                textView.setText("Welcome "+firstName +" "+lastName);
+                textView.setText("Account Type: "+ accountType);
             }
         });
 
