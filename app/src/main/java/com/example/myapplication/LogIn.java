@@ -24,7 +24,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class LogIn extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +31,9 @@ public class LogIn extends AppCompatActivity {
 
 
         setContentView(R.layout.log_in);
-        TextView textView = (TextView) findViewById(R.id.welcome);
+        TextView welcomeText = (TextView) findViewById(R.id.welcomeText);
+        TextView accountType = (TextView) findViewById(R.id.typeOfAccount) ;
+        //TextView textView = (TextView) findViewById(R.id.welcome);
         //FirebaseUser user = getIntent()("USER");
         FirebaseAuth mAuth;
 
@@ -49,7 +50,10 @@ public class LogIn extends AppCompatActivity {
             if (task.isSuccessful()) {
                 String firstName = task.getResult().get("firstName").toString();
                 String account = task.getResult().get("accountType").toString();
-                textView.setText("Hello "+firstName+", you are a "+account);
+
+                //welcomeText.setText("Welcome"+firstName)
+                welcomeText.setText("Welcome  "+firstName);
+                accountType.setText("You are a "+ account);
             }
         });
 
