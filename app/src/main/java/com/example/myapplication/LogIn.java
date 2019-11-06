@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -17,6 +18,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class LogIn extends AppCompatActivity {
@@ -37,6 +40,20 @@ public class LogIn extends AppCompatActivity {
 
         FirebaseUser user = mAuth.getCurrentUser();
         String email = user.getEmail();
+
+
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+
+
+        database.collection("users").document(email).get().addOnCompleteListener((@NonNull Task<DocumentSnapshot> task)->{
+            if (task.isSuccessful()) {
+                String firstName = task.getResult().get("firstName").toString();
+                textView.setText("text you want to display "+firstName);
+            }
+        });
+
+
+
         /*
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference ref = database.getReference("users"+"/"+email);
@@ -53,7 +70,6 @@ public class LogIn extends AppCompatActivity {
         }
         */
 
-        textView.setText("text you want to display "+email);
 
 
         Button logOutButton = findViewById(R.id.logOutButton);

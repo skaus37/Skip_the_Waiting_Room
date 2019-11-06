@@ -1,5 +1,5 @@
 package com.example.myapplication;
-
+/*
 public class User {
 
     private String firstName;
@@ -29,3 +29,4 @@ public class User {
         return accountType;
     }
 }
+*/
