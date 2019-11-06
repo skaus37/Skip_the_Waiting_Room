@@ -1,17 +1,15 @@
 package com.example.myapplication;
+
 /*
 public class User {
 
     private String firstName;
     private String lastName;
-
     private String accountType;
-
-    public User(){
 
     }
 
-    public User(firstName, lastName, accountType){
+    public User(String firstName, String lastName, String accountType){
         firstName = firstName;
         lastName = lastName;
         accountType = accountType;
@@ -29,4 +27,5 @@ public class User {
         return accountType;
     }
 }
+
 */
