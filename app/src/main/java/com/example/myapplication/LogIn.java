@@ -55,9 +55,7 @@ public class LogIn extends AppCompatActivity {
                 welcomeText.setText("Welcome  "+firstName);
                 accountType.setText("You are a "+ account);
                 if (account == "admin"){
-                        if (task.isSuccessful()) {
-                            //call tasks
-                        }
+                    // I think it has to go here
                 }
             }
         });
