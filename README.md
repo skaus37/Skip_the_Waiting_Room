@@ -11,7 +11,5 @@ Angus Young
 # Starts Here
 Build Status 
 [![Build 
-Status](https://circleci.com/gh/SEG2105-uottawa/seg2105-project-f19-21.png?branch=m
-aster)](https://circle
-ci.com/gh/SEG2105-uottawa/seg2105-project-f19-21)
+Status](https://circleci.com/gh/SEG2105-uottawa/seg2105-project-f19-21.png?branch=master)](https://circleci.com/gh/SEG2105-uottawa/seg2105-project-f19-21)
 #Ends here
