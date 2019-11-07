@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
+
+
+    <string-array name="roleOptionsArray">
+        <item>doctor</item>
+        <item>nurse</item>
+        <item>staff</item>
+    </string-array>
 </resources>

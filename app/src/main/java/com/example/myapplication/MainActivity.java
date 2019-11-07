@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         EditText emailText = (EditText)findViewById(R.id.email_Login);
         EditText passText = (EditText)findViewById(R.id.password);
         email = emailText.getText().toString();
+
+
         passWord = passText.getText().toString();
         if (email.matches("") || passWord.matches("")) {
             Toast.makeText(this, "You need to enter a username and a password", Toast.LENGTH_SHORT).show();
@@ -58,9 +60,15 @@ public class MainActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
 
                                 FirebaseUser user = mAuth.getCurrentUser();
-
-                                Intent intent = new Intent (this, LogIn.class);
-                                startActivity(intent);
+                                //if the admin logs on they get brought to the admin page
+                                if(email.equals( "admin@gmail.com")){
+                                    Intent intent = new Intent (this, EditServiceActivity.class);
+                                    startActivity(intent);
+                                }
+                                else{
+                                    Intent intent = new Intent (this, LogIn.class);
+                                    startActivity(intent);
+                                }
 
                             } else {
                                 // If sign in fails, display a message to the user.
