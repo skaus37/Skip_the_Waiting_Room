@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -35,18 +36,23 @@ public class EditServiceActivity extends AppCompatActivity {
         String role = spinnerView.getText().toString();
 
 
-        Map<String, Object> docData = new HashMap<>();
-        //docData.put("role", role);
-        docData.put("Name", service);
+
+        String serviceVar = serviceText.getText().toString();
 
         //add if statements similar to that in create_account.java to check if the name box is fill out
+        if (serviceVar.matches("")) {
+            Toast.makeText(this, "You must enter a service name", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            Map<String, Object> docData = new HashMap<>();
+            //docData.put("role", role);
+            docData.put("Name", service);
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            //add on complete lister...see create_account.java code
+            db.collection("services").document(service).set(docData);
 
-
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        //add on complete lister...see create_account.java code
-        db.collection("services").document(service).set(docData);
-
-
+        }
 
 
     }
