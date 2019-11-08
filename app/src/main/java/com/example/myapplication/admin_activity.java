@@ -19,4 +19,8 @@ public class admin_activity extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void goAccounts (View view){
+        Intent intent1 = new Intent (this, AccountManagement.class);
+        startActivity(intent1);
+    }
 }
