@@ -7,24 +7,29 @@
     tools:context=".AdminActivity">
 
 
-
     <Button
         android:id="@+id/services"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="goServices"
-        android:text="services" />
+        android:text="services"
+        app:layout_constraintBottom_toTopOf="@id/accounts"
+        app:layout_constraintTop_toBottomOf="@id/adminWelcome" />
 
     <Button
         android:id="@+id/accounts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Accounts" />
+        android:text="Accounts"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/services" />
 
     <TextView
         android:id="@+id/adminWelcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Welcome Admin! Choose an activity:"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/services"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
