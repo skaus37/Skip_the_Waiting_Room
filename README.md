@@ -8,3 +8,7 @@ Elian Karpov<br />
 Simrun Kaushal<br />
 Angus Young
 
+Build Status
+[![Build Status](https://circleci.com/gh/skaus37/seg2105-project-f19-21.png?branch=master)](https://circleci.com/gh/skaus37/seg2105-project-f19-21)
+
+
