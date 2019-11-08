@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 //if the admin logs on they get brought to the admin page
                                 if(email.equals( "admin@gmail.com")){
-                                    Intent intent = new Intent (this, EditServiceActivity.class);
+                                    Intent intent = new Intent (this, AdminActivity.class);
                                     startActivity(intent);
                                 }
                                 else{
