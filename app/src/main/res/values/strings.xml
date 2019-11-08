@@ -7,4 +7,5 @@
         <item>nurse</item>
         <item>staff</item>
     </string-array>
+    <string name="title_activity_admin_account_management">AdminAccountManagement</string>
 </resources>

@@ -20,7 +20,7 @@
         android:id="@+id/accounts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="goAccounts"
+        android:onClick="goAccountManage"
         android:text="Accounts"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/services" />
