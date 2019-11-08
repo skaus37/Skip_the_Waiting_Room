@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class AdminActivity extends AppCompatActivity {
+public class admin_activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
