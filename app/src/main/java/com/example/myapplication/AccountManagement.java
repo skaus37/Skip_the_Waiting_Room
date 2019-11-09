@@ -3,17 +3,21 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -26,17 +30,20 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AccountManagement extends AppCompatActivity {
+    ListView userListView;
+    DatabaseReference mDatabase;
+    ArrayList<String> accountArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account_management);
+        userListView = (ListView) findViewById(R.id.listOfUsers);
 
         updateListVeiw();
+        deleteAccounts();
         /*
-
-
         ListView attempt = (ListView) findViewById(R.id.listOfUsers);
 
         String[] fruits = new String[] {
@@ -54,23 +61,20 @@ public class AccountManagement extends AppCompatActivity {
 
     FirebaseFirestore database = FirebaseFirestore.getInstance();
 
+    public void updateListVeiw() {
 
-    public void updateListVeiw(){
-        //ArrayList<String> accountArray;
-
-
-        database.collection("users").get().addOnCompleteListener((@NonNull Task<QuerySnapshot> task)->{
-            if (task.isSuccessful()){
-
+        database.collection("users").get().addOnCompleteListener((@NonNull Task<QuerySnapshot> task) -> {
+            if (task.isSuccessful()) {
                 String currentUser;
-                ArrayList<String> accountArray = new ArrayList<>();
+                accountArray = new ArrayList<>();
                 //make it impossible for the admin to deleate admin account
-                for (QueryDocumentSnapshot document : task.getResult()){
+                for (QueryDocumentSnapshot document : task.getResult()) {
                     currentUser = document.getId();
-                    accountArray.add(currentUser);
+                    if (!(currentUser.equals("admin@gmail.com"))) {
+                        accountArray.add(currentUser);
 
+                    }
                 }
-                ListView userListView = (ListView) findViewById(R.id.listOfUsers);
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
                         (this, android.R.layout.simple_list_item_1, accountArray);
                 userListView.setAdapter(arrayAdapter);
@@ -79,34 +83,21 @@ public class AccountManagement extends AppCompatActivity {
 
         });
 
-
-
-
     }
 
 
+    public void deleteAccounts() {
+        TextView textView = (TextView) findViewById(R.id.textView4);
 
-    /*
-    @Override
-    protected  void onStart() {
-        super.onStart();
-        databaseAccounts.addValueEventListener(new ValueEventListener() {
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        userListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                users.clear();
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    User user = postSnapshot.getValue(User.class);
-                    users.add(user);
-                }
-                AccountList usersAdapter = new AccountList(AccountManagement.this, users);
-                listViewUsers.setAdapter(usersAdapter);
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String email = accountArray.get(i);
+                textView.setText(email);
+                return true;
             }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
         });
-
-    }*/
+    }
 }

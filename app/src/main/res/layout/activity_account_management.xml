@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".AccountManagement">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="72dp" />
+
     <Button
         android:id="@+id/delete_account"
         android:layout_width="0dp"
@@ -39,7 +47,9 @@
         android:id="@+id/listOfUsers"
         android:layout_width="414dp"
         android:layout_height="557dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

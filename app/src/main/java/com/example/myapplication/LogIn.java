@@ -53,7 +53,7 @@ public class LogIn extends AppCompatActivity {
 
                 //welcomeText.setText("Welcome"+firstName)
                 welcomeText.setText("Welcome  "+firstName);
-                accountType.setText("You are a "+ account);
+                accountType.setText("You are a "+ account+" With email: " + email);
                 if (account == "admin"){
                     // I think it has to go here
                 }
