@@ -11,7 +11,7 @@ Simrun Kaushal<br />
 Angus Young<br />
 
 ## Build Status ##
-[![Build Status](https://circleci.com/gh/skaus37/seg2105-project-f19-21.png?branch=master)]](https://circleci.com/gh/skaus37/seg2105-project-f19-21)
+[![Build Status](https://circleci.com/gh/skaus37/seg2105-project-f19-21.png?branch=master)](https://circleci.com/gh/skaus37/seg2105-project-f19-21)
 
 ## Admin credentials ##
 Email: admin@gmail.com
