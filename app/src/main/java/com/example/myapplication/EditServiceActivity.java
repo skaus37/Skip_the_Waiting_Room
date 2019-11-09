@@ -78,11 +78,18 @@ public class EditServiceActivity extends AppCompatActivity {
 
                     }
 
-                    ListView userListView = (ListView) findViewById(R.id.listServices);
-                    ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
-                            (this, android.R.layout.simple_list_item_1, accountArray);
-                    userListView.setAdapter(arrayAdapter);
+                    //ListView userListView = (ListView) findViewById(R.id.listServices);
+                    //ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>
+                      //      (this, android.R.layout.simple_list_item_1, accountArray);
+                    //userListView.setAdapter(arrayAdapter);
 
+
+                    //instantiate custom adapter
+                    ListViewRowHandler adapter = new ListViewRowHandler(accountArray, this);
+
+                    //handle listview and assign adapter
+                    ListView lView = (ListView)findViewById(R.id.listServices);
+                    lView.setAdapter(adapter);
                 }
             });
 
