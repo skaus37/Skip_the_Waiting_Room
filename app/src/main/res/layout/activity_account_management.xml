@@ -7,25 +7,16 @@
     tools:context=".AccountManagement">
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="35dp"
-        tools:layout_editor_absoluteY="72dp" />
-
-    <Button
-        android:id="@+id/delete_account"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="135dp"
-        android:layout_marginBottom="25dp"
-        android:text="Delete Account"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="34dp"
+        android:text="Hold the account you'd like to delete for one second and let go"
         app:layout_constraintBottom_toTopOf="@+id/button_back"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,14 +25,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="162dp"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="162dp"
         android:layout_marginBottom="594dp"
+        android:onClick="goBack"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/delete_account" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
         android:id="@+id/listOfUsers"
