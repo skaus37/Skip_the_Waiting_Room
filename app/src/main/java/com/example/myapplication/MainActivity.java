@@ -12,6 +12,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private String email, passWord;
 
     private FirebaseAuth mAuth;
+    private FirebaseFirestore database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,16 +69,39 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent = new Intent (this, admin_activity.class);
                                     startActivity(intent);
                                 }
+
+
+
+
                                 else{
-                                    Intent intent = new Intent (this, LogIn.class);
-                                    startActivity(intent);
+                                    database = FirebaseFirestore.getInstance();
+                                    database.collection("users").document(email).get().addOnCompleteListener((@NonNull Task<DocumentSnapshot> task2)->{
+                                        if (task.isSuccessful()) {
+                                            DocumentSnapshot document = task2.getResult();
+                                            if (document.exists()){
+                                                Intent intent = new Intent (this, LogIn.class);
+                                                startActivity(intent);
+                                            }
+                                            else{
+                                                Toast.makeText(this, "The following user was deleted", Toast.LENGTH_SHORT).show();
+                                            }
+
+
+                                        }
+                                    });
+
+
+
+
+
+
                                 }
 
                             } else {
                                 // If sign in fails, display a message to the user.
 
                                 Toast.makeText(this, task.getException().toString(), Toast.LENGTH_SHORT).show();
-                                return ;
+
 
                             }
 

@@ -150,6 +150,7 @@ public class create_account extends AppCompatActivity {
 
 
                     //if sign in is success go to next page
+                    finish();
                     Intent intent = new Intent(this, LogIn.class);
                     startActivity(intent);
 

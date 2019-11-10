@@ -54,9 +54,8 @@ public class LogIn extends AppCompatActivity {
                 //welcomeText.setText("Welcome"+firstName)
                 welcomeText.setText("Welcome  "+firstName);
                 accountType.setText("You are a "+ account+" With email: " + email);
-                if (account == "admin"){
-                    // I think it has to go here
-                }
+
+
             }
         });
 
@@ -91,10 +90,11 @@ public class LogIn extends AppCompatActivity {
     public void LogOutClick(View view){
         //insert log out code
         FirebaseAuth.getInstance().signOut();
+        finish();
 
-        //goes back to first page
+        /*
         Intent intent = new Intent (this, MainActivity.class);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 
 
