@@ -1,11 +1,16 @@
 package com.example.myapplication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -13,6 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -24,6 +34,14 @@ import java.util.Map;
 
 public class EditServiceActivity extends AppCompatActivity {
 
+    List<Service> services;
+    EditText serviceText;
+    String service;
+    Spinner spinner;
+    TextView spinnerView;
+    String role;
+    Button addButton;
+    ListView listServices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +51,38 @@ public class EditServiceActivity extends AppCompatActivity {
         updateListView();
 
         //set role options
+        addButton = (Button) findViewById(R.id.addServiceButton);
+        listServices = (ListView) findViewById(R.id.listServices);
+        services = new ArrayList<>();
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addService();
+            }
+        });
+
+        listServices.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Service service = services.get(i);
+                showUpdateDeleteDialog(service.getID(), service.getServiceName());
+                return true;
+            }
+        });
+
 
     }
 
-    public void addService(View view) {
-        EditText serviceText = (EditText) findViewById(R.id.serviceNameText);
-        String service = serviceText.getText().toString();
-        Spinner spinner = (Spinner) findViewById(R.id.roleOptions);
-        TextView spinnerView = (TextView) spinner.getSelectedView();
-        String role = spinnerView.getText().toString();
+
+
+
+    public void addService() {
+        serviceText = (EditText) findViewById(R.id.serviceNameText);
+        service = serviceText.getText().toString();
+        spinner = (Spinner) findViewById(R.id.roleOptions);
+        spinnerView = (TextView) spinner.getSelectedView();
+        role = spinnerView.getText().toString();
 
 
         String serviceVar = serviceText.getText().toString();
@@ -57,7 +98,7 @@ public class EditServiceActivity extends AppCompatActivity {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             //add on complete lister...see create_account.java code
             db.collection("services").document(service).set(docData);
-
+            updateListView();
         }
     }
 
@@ -93,7 +134,82 @@ public class EditServiceActivity extends AppCompatActivity {
                 }
             });
 
+//            delete_btn.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    deleteService(serviceId);
+//                }
+//            });
+
 
         }
+
+
+    public void deleteService(String id) {
+
+
+                //Service s = services.get(id);
+                database.collection("services").document(String.valueOf(id)).delete();
+                updateListView();
+                //return true;
+
+    }
+
+    private void updateService(String id, String name, String role) {
+
+
+        DatabaseReference dR = FirebaseDatabase.getInstance().getReference("services").child(id);
+        Service service = new Service (id, name, role);
+        dR.setValue(service);
+        Toast.makeText(getApplicationContext(), "Service Updated", Toast.LENGTH_LONG).show();
+    }
+
+    private void showUpdateDeleteDialog(final String serviceId, String serviceName) {
+
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.update, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText editService = (EditText) dialogView.findViewById(R.id.editTextName);
+        final Spinner editRole  = (Spinner) dialogView.findViewById(R.id.roleOptions);
+        final TextView spinnerView = (TextView) editRole.getSelectedView();
+        final Button updateButton = (Button) dialogView.findViewById(R.id.updateBtn);
+        final Button deleteButton = (Button) dialogView.findViewById(R.id.deleteBtn);
+
+        dialogBuilder.setTitle(serviceName);
+        final AlertDialog b = dialogBuilder.create();
+        b.show();
+
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String name = editService.getText().toString().trim();
+                String role = spinnerView.getText().toString();
+                if (!TextUtils.isEmpty(name)) {
+                    updateService(serviceId, name, role);
+                    b.dismiss();
+                }
+            }
+        });
+//        database = FirebaseFirestore.getInstance();
+//        listServices.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Service s = services.get(i);
+//                database.collection("services").document(String.valueOf(s)).delete();
+//                updateListView();
+//                return true;
+//            }
+//
+//        });
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteService(serviceId);
+                b.dismiss();
+            }
+        });
+    }
 
 }
