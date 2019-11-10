@@ -20,15 +20,19 @@
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
         android:layout_marginRight="5dp"
+        android:background="@drawable/roundtextcolour"
+        android:fontFamily="sans-serif-light"
         android:text="Delete" />
 
     <Button
         android:id="@+id/add_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/delete_btn"
         android:layout_centerVertical="true"
         android:layout_marginRight="10dp"
-        android:text="Add" />
+        android:layout_toLeftOf="@id/delete_btn"
+        android:background="@drawable/roundtextcolour"
+        android:fontFamily="sans-serif-light"
+        android:text="Edit" />
 
 </RelativeLayout>
