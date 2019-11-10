@@ -1,17 +1,25 @@
 package com.example.myapplication;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import android.view.LayoutInflater;
+import android.view.View;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+
 
 public class ListViewRowHandler extends BaseAdapter implements ListAdapter {
     private ArrayList<String> list = new ArrayList<String>();
@@ -69,14 +77,23 @@ public class ListViewRowHandler extends BaseAdapter implements ListAdapter {
                 notifyDataSetChanged();
             }
         });
-        addBtn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                //do something
-                notifyDataSetChanged();
-            }
-        });
+//        addBtn.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                //do something
+////                System.out.println("yaaaa");
+////                Intent i = new Intent(context, UpdateService.class);
+////                context.startActivity(i);
+////                EditServiceActivity.update();
+////                System.out.println("yaaaa");
+////                notifyDataSetChanged();
+//            }
+//        });
 
         return view;
     }
+
+
+
+
 }
