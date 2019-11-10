@@ -84,8 +84,7 @@ public class AccountManagement extends AppCompatActivity {
         });
     }
     public void goBack(View view){
-        Intent intent = new Intent(this, admin_activity.class);
-        startActivity(intent);
+        finish();
 
     }
 }
