@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
-public class Service {
+
+
+public class Service{
 
     private String id;
     private String serviceName;
@@ -32,4 +34,6 @@ public class Service {
     public String getRole(){
         return role;
     }
+
+
 }

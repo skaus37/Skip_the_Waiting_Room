@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,18 +78,20 @@ public class ListViewRowHandler extends BaseAdapter implements ListAdapter {
                 notifyDataSetChanged();
             }
         });
-//        addBtn.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v) {
-//                //do something
-////                System.out.println("yaaaa");
-////                Intent i = new Intent(context, UpdateService.class);
-////                context.startActivity(i);
-////                EditServiceActivity.update();
-////                System.out.println("yaaaa");
-////                notifyDataSetChanged();
-//            }
-//        });
+        addBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //do something
+                System.out.println("yaaaa");
+                Intent i = new Intent(context, UpdateService.class);
+                Bundle b=new Bundle();
+                b.putStringArrayList("KEY",(ArrayList<String>)list);
+                i.putExtras(b);
+                i.putExtra("position", position);
+                context.startActivity(i);
+
+            }
+        });
 
         return view;
     }
