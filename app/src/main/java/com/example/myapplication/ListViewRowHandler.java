@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.ArrayList;
 
 public class ListViewRowHandler extends BaseAdapter implements ListAdapter {
@@ -37,6 +39,7 @@ public class ListViewRowHandler extends BaseAdapter implements ListAdapter {
         return 0;
         //just return 0 if your list items do not have an Id variable.
     }
+    FirebaseFirestore database = FirebaseFirestore.getInstance();
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
@@ -57,8 +60,12 @@ public class ListViewRowHandler extends BaseAdapter implements ListAdapter {
         deleteBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                //do something
-                list.remove(position); //or some other task
+
+                 //or some other task
+                database = FirebaseFirestore.getInstance();
+                String id = list.get(position);
+                database.collection("services").document(id).delete();
+                list.remove(position);
                 notifyDataSetChanged();
             }
         });
