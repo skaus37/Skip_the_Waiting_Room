@@ -13,7 +13,6 @@ Angus Young<br />
 ## Build Status ##
 [![Build Status](https://circleci.com/gh/SEG2105-uottawa/seg2105-project-f19-21.png?branch=master)](https://circleci.com/gh/SEG2105-uottawa/seg2105-project-f19-21)
 
-[![CircleCI](https://circleci.com/gh/SEG2105-uottawa/seg2105-project-f19-21.svg?style=svg)](https://circleci.com/gh/SEG2105-uottawa/seg2105-project-f19-21)
 
 ## Admin credentials ##
 Email: admin@gmail.com<br />
