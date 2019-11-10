@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -60,21 +61,27 @@ public class UpdateService extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
                 String id = list.get(position);
-                //role = spinnerView.getText().toString();
                 role = roleEnter.getText().toString();
                 service = name.getText().toString();
-                Map<String, Object> docData = new HashMap<>();
-                docData.put("role", role);
-                docData.put("Name", service);
 
-//                DatabaseReference dR = FirebaseDatabase.getInstance().getReference("services").child(id);
-//                Service updated = new Service (id, service, role);
-//                dR.setValue(updated);
-                //add on complete lister...see create_account.java code
-                database.collection("services").document(id).delete();
-                database.collection("services").document(service).set(docData);
-                goBack();
+                if((role.toLowerCase().trim().equals("nurse") ||
+                        role.toLowerCase().trim().equals("doctor") ||
+                        role.toLowerCase().trim().equals("staff"))&&(!name.equals(null))){
+                    Map<String, Object> docData = new HashMap<>();
+                    docData.put("role", role);
+                    docData.put("Name", service);
+
+
+                    //add on complete lister...see create_account.java code
+                    database.collection("services").document(id).delete();
+                    database.collection("services").document(service).set(docData);
+                    goBack();
+                } else {
+                    toast();
+                }
+
             }
         });
 
@@ -102,6 +109,11 @@ public class UpdateService extends AppCompatActivity {
     public void goBack(){
         Intent i = new Intent(this, EditServiceActivity.class);
         startActivity(i);
+    }
+
+    public void toast(){
+        Toast.makeText(this, "You must enter valid service and role", Toast.LENGTH_SHORT).show();
+        return;
     }
 
 
