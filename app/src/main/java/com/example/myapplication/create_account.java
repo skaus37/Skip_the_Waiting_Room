@@ -151,9 +151,15 @@ public class create_account extends AppCompatActivity {
 
                     //if sign in is success go to next page
                     finish();
-                    Intent intent = new Intent(this, LogIn.class);
-                    startActivity(intent);
 
+                    if(role.equals("employee")) {
+                        Intent intent = new Intent(this, ProfileActivity.class);
+                        startActivity(intent);
+                    } else {
+
+                        Intent intent = new Intent(this, LogIn.class);
+                        startActivity(intent);
+                    }
 
                 } else {
                     // If sign in fails, display a message to the user.

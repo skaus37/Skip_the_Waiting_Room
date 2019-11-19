@@ -10,52 +10,79 @@
         android:id="@+id/addressText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginEnd="46dp"
         android:text="Enter address:"
         android:textSize="18sp"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextLayout"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022" />
 
     <TextView
         android:id="@+id/textPhone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         android:text="Enter phone number:"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/addressText" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
 
     <TextView
         android:id="@+id/textClinicName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginEnd="30dp"
         android:text="Enter clinic name:"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/textPhone" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.14" />
 
     <TextView
         android:id="@+id/textInsurance"
-        android:layout_width="180"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="Enter accepted insurance types:"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/textClinicName" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextLayout"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.202" />
 
     <TextView
         android:id="@+id/textPayment"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:layout_marginEnd="87dp"
         android:text="Enter accepted "
-        app:layout_constraintTop_toBottomOf="@id/textInsurance" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextLayout"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInsurance"
+        app:layout_constraintVertical_bias="0.005" />
 
     <LinearLayout
         android:id="@+id/editTextLayout"
         android:layout_width="225dp"
         android:layout_height="731dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="186dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <EditText
             android:id="@+id/editAddress"

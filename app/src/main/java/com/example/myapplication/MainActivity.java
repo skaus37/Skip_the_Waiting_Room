@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                                                 String account = task2.getResult().get("accountType").toString();
                                                 if (account.equals("employee")){
                                                     // Start employee activity
-                                                    Intent intent = new Intent(this, EmployeeActivity.class);
+                                                    Intent intent = new Intent(this, ProfileActivity.class);
                                                     startActivity(intent);
                                                 }
                                                 else{
