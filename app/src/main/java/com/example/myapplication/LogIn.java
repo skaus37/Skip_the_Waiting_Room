@@ -50,11 +50,16 @@ public class LogIn extends AppCompatActivity {
             if (task.isSuccessful()) {
                 String firstName = task.getResult().get("firstName").toString();
                 String account = task.getResult().get("accountType").toString();
-
-                //welcomeText.setText("Welcome"+firstName)
-                welcomeText.setText("Welcome  "+firstName);
-                accountType.setText("You are a "+ account+" With email: " + email);
-
+                if (account.equals("employee")){
+                    // Start employee activity
+                    Intent intent = new Intent(this, EmployeeActivity.class);
+                    startActivity(intent);
+                }
+                else {
+                    //welcomeText.setText("Welcome"+firstName)
+                    welcomeText.setText("Welcome  " + firstName);
+                    accountType.setText("You are a " + account + " With email: " + email);
+                }
 
             }
         });
