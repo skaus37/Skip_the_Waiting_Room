@@ -79,8 +79,25 @@ public class MainActivity extends AppCompatActivity {
                                         if (task.isSuccessful()) {
                                             DocumentSnapshot document = task2.getResult();
                                             if (document.exists()){
-                                                Intent intent = new Intent (this, LogIn.class);
-                                                startActivity(intent);
+
+                                                //if the user logging in is a employee go to employee activity
+                                                String account = task2.getResult().get("accountType").toString();
+                                                if (account.equals("employee")){
+                                                    // Start employee activity
+                                                    Intent intent = new Intent(this, EmployeeActivity.class);
+                                                    startActivity(intent);
+                                                }
+                                                else{
+                                                    Intent intent = new Intent (this, LogIn.class);
+                                                    startActivity(intent);
+
+                                                }
+
+
+                                                //else go to patient
+
+
+
                                             }
                                             else{
                                                 Toast.makeText(this, "The following user was deleted", Toast.LENGTH_SHORT).show();
