@@ -82,7 +82,9 @@ public class MainActivity extends AppCompatActivity {
 
                                                 //if the user logging in is a employee go to employee activity
                                                 String account = task2.getResult().get("accountType").toString();
-                                                if (account.equals("employee")){
+                                                String profile = task2.getResult().get("updated").toString();
+
+                                                if (account.equals("employee") && profile.equals("no")){
                                                     // Start employee activity
                                                     Intent intent = new Intent(this, ProfileActivity.class);
                                                     startActivity(intent);

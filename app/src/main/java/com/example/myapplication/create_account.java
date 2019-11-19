@@ -138,6 +138,7 @@ public class create_account extends AppCompatActivity {
                     docData.put("accountType", role);
                     docData.put("firstName", firstName);
                     docData.put("lastName", lastName);
+                    docData.put("updated", "no");
                     //i do not think we need to store this....will confire later
                     //docData.put("password", passWord);
 // Add a new document (asynchronously) in collection "cities" with id "LA"

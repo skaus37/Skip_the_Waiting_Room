@@ -48,6 +48,7 @@ public class ProfileActivity extends AppCompatActivity {
         insurance = insuranceText.getText().toString();
         payment = paymentText.getText().toString();
 
+
         if(address.matches("") || phone.matches("") || clinicName.matches("") || insurance.matches("") || payment.matches("")){
             Toast.makeText(this, "You must fill out all fields", Toast.LENGTH_SHORT).show();
             return;
@@ -62,6 +63,7 @@ public class ProfileActivity extends AppCompatActivity {
             docData.put("clinicName", clinicName);
             docData.put("payment", payment);
             docData.put("insurance", insurance);
+            docData.put("updated","yes");
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             db.collection("users").document(user.getEmail()).set(docData);
