@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -15,6 +17,10 @@ import java.util.ArrayList;
 
 public class EmployeeEditService extends AppCompatActivity {
 
+
+    //
+    Spinner optionalService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +30,7 @@ public class EmployeeEditService extends AppCompatActivity {
 
     public void updateList(){
         FirebaseFirestore database = FirebaseFirestore.getInstance();
+        optionalService = (Spinner) findViewById(R.id.spinner);
 
         database.collection("services").get().addOnCompleteListener((@NonNull Task<QuerySnapshot> task) -> {
             if (task.isSuccessful()) {
@@ -38,12 +45,18 @@ public class EmployeeEditService extends AppCompatActivity {
                 }
 
 
-                //instantiate custom adapter
-                ListServiceHandler adapter = new ListServiceHandler(accountArray, this);
-                ListView lView = (ListView) findViewById(R.id.serviceList);
-                //handle listview and assign adapter
 
-                lView.setAdapter(adapter);
+
+                //instantiate custom adapter
+                //ListServiceHandler adapter = new ListServiceHandler(accountArray, this);
+                //ListView lView = (ListView) findViewById(R.id.serviceList);
+
+                //add stuff to spinner
+
+                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, accountArray);
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                optionalService.setAdapter(adapter);
             }
         });
 }   }
