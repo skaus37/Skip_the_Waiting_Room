@@ -75,9 +75,9 @@ public class EditServiceActivity extends AppCompatActivity {
 
     public void addService() {
 
-        serviceText = (EditText) findViewById(R.id.serviceNameText);
+        serviceText = findViewById(R.id.serviceNameText);
         service = serviceText.getText().toString();
-        spinner = (Spinner) findViewById(R.id.roleOptions);
+        spinner = findViewById(R.id.roleOptions);
         spinnerView = (TextView) spinner.getSelectedView();
         role = spinnerView.getText().toString();
 
@@ -90,7 +90,7 @@ public class EditServiceActivity extends AppCompatActivity {
             return;
         } else {
             Map<String, Object> docData = new HashMap<>();
-            //docData.put("role", role);
+            docData.put("role", role);
             docData.put("Name", service);
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             //add on complete lister...see create_account.java code
