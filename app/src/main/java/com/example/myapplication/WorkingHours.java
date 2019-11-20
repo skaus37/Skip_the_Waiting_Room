@@ -32,7 +32,8 @@ public class WorkingHours extends AppCompatActivity implements TimePickerDialog.
     private String monOpen, tuesOpen, wedOpen, thursOpen, friOpen, satOpen, sunOpen, monClose, tuesClose, wedClose, thursClose, friClose, satClose, sunClose;
     private FirebaseFirestore database;
 
-    private EditText editMon, editTues, editWed, editThurs, editFri, editSat, editSun;
+    private TextView editMon, editThurs, editWed, editTues, editFri, editSat, editSun;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -196,13 +197,13 @@ public class WorkingHours extends AppCompatActivity implements TimePickerDialog.
         });
 
 
-        editMon = (EditText) findViewById(R.id.editMon);
-        editTues = (EditText) findViewById(R.id.editTues);
-        editWed = (EditText) findViewById(R.id.editWednes);
-        editThurs = (EditText) findViewById(R.id.editThurs);
-        editFri = (EditText) findViewById(R.id.editFri);
-        editSat = (EditText) findViewById(R.id.editSat);
-        editSun = (EditText) findViewById(R.id.editSun);
+        editMon = (TextView) findViewById(R.id.editMon);
+        editTues = (TextView) findViewById(R.id.editTues);
+        editWed = (TextView) findViewById(R.id.editWednes);
+        editThurs = (TextView) findViewById(R.id.editThurs);
+        editFri = (TextView) findViewById(R.id.editFri);
+        editSat = (TextView) findViewById(R.id.editSat);
+        editSun = (TextView) findViewById(R.id.editSun);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -236,7 +237,7 @@ public class WorkingHours extends AppCompatActivity implements TimePickerDialog.
         sat = editSat.getText().toString();
         sun = editSun.getText().toString();
 
-        if(mon.matches("")||tues.matches("")||wed.matches("")||thurs.matches("")||fri.matches("")||sat.matches("")||sun.matches("")){
+        if(mon.contains("null")||tues.contains("null")||wed.contains("null")||thurs.contains("null")||fri.contains("null")||sat.contains("null")||sun.contains("null")){
             Toast.makeText(this, "You must fill out all fields", Toast.LENGTH_SHORT).show();
             return;
         } else{
@@ -314,85 +315,85 @@ public class WorkingHours extends AppCompatActivity implements TimePickerDialog.
 
         // Writing new values into EditText
         if ((clock == 0) && (openOrClose == true)){
-            editMon = (EditText) findViewById(R.id.editMon);
+            editMon = (TextView) findViewById(R.id.editMon);
             monOpen = (hourOfDay + ":" + minute);
             editMon.setText(monOpen + " - " + monClose);
         }
 
         if ((clock == 0) && (openOrClose == false)){
-            editMon = (EditText) findViewById(R.id.editMon);
+            editMon = (TextView) findViewById(R.id.editMon);
             monClose = (hourOfDay + ":" + minute);
             editMon.setText(monOpen + " - " + monClose);
         }
 
         if ((clock == 1) && (openOrClose == true)){
-            editTues = (EditText) findViewById(R.id.editTues);
+            editTues = (TextView) findViewById(R.id.editTues);
             tuesOpen = (hourOfDay + ":" + minute);
             editTues.setText(tuesOpen + " - " + tuesClose);
         }
 
         if ((clock == 1) && (openOrClose == false)){
-            editTues = (EditText) findViewById(R.id.editTues);
+            editTues = (TextView) findViewById(R.id.editTues);
             tuesClose = (hourOfDay + ":" + minute);
             editTues.setText(tuesOpen + " - " + tuesClose);
         }
 
         if ((clock == 2) && (openOrClose == true)){
-            editWed = (EditText) findViewById(R.id.editWednes);
+            editWed = (TextView) findViewById(R.id.editWednes);
             wedOpen = (hourOfDay + ":" + minute);
             editWed.setText(wedOpen + " - " + wedClose);
         }
 
         if ((clock == 2) && (openOrClose == false)){
-            editWed = (EditText) findViewById(R.id.editWednes);
+            editWed = (TextView) findViewById(R.id.editWednes);
             wedClose = (hourOfDay + ":" + minute);
             editWed.setText(wedOpen + " - " + wedClose);
         }
 
         if ((clock == 3) && (openOrClose == true)){
-            editThurs = (EditText) findViewById(R.id.editThurs);
+            editThurs = (TextView) findViewById(R.id.editThurs);
             thursOpen = (hourOfDay + ":" + minute);
             editThurs.setText(thursOpen + " - " + thursClose);
         }
 
         if ((clock == 3) && (openOrClose == false)){
-            editThurs = (EditText) findViewById(R.id.editThurs);
+            editThurs = (TextView) findViewById(R.id.editThurs);
             thursClose = (hourOfDay + ":" + minute);
             editThurs.setText(thursOpen + " - " + thursClose);
         }
 
         if ((clock == 4) && (openOrClose == true)){
-            editFri = (EditText) findViewById(R.id.editFri);
+            editFri = (TextView) findViewById(R.id.editFri);
             friOpen = (hourOfDay + ":" + minute);
             editFri.setText(friOpen + " - " + friClose);
         }
 
         if ((clock == 4) && (openOrClose == false)){
-            editFri = (EditText) findViewById(R.id.editFri);
+            editFri = (TextView) findViewById(R.id.editFri);
             friClose = (hourOfDay + ":" + minute);
             editFri.setText(friOpen + " - " + friClose);
         }
 
         if ((clock == 5) && (openOrClose == true)){
-            editSat = (EditText) findViewById(R.id.editSat);
+            editSat = (TextView) findViewById(R.id.editSat);
             satOpen = (hourOfDay + ":" + minute);
             editSat.setText(satOpen + " - " + satClose);
         }
 
         if ((clock == 5) && (openOrClose == false)){
-            editSat = (EditText) findViewById(R.id.editSat);
+            editSat = (TextView) findViewById(R.id.editSat);
             satClose = (hourOfDay + ":" + minute);
             editSat.setText(satOpen + " - " + satClose);
         }
 
         if ((clock == 6) && (openOrClose == true)){
-            editSun = (EditText) findViewById(R.id.editSun);
+            editSun = (TextView) findViewById(R.id.editSun);
             sunOpen = (hourOfDay + ":" + minute);
             editSun.setText(sunOpen + " - " + sunClose);
         }
 
         if ((clock == 6) && (openOrClose == false)){
-            editSun = (EditText) findViewById(R.id.editSun);
+            editSun = (TextView) findViewById(R.id.editSun);
             sunClose = (hourOfDay + ":" + minute);
             editSun.setText(sunOpen + " - " + sunClose);
         }

@@ -68,14 +68,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.439" />
 
-    <EditText
+    <TextView
         android:id="@+id/editThurs"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Closed"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/editMon"
         app:layout_constraintTop_toTopOf="@id/thursdayText" />
 
@@ -89,49 +88,45 @@
         app:layout_constraintTop_toBottomOf="@id/thursdayText"
         tools:layout_editor_absoluteX="0dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/editMon"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Closed"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/editTues"
         tools:layout_editor_absoluteY="16dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTues"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Closed"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tuesdayText"
         app:layout_constraintTop_toTopOf="@id/tuesdayText" />
 
-    <EditText
+    <TextView
         android:id="@+id/editWednes"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Closed"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/editTues"
         app:layout_constraintTop_toTopOf="@id/wednesdayText" />
 
 
-    <EditText
+    <TextView
         android:id="@+id/editFri"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Closed"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/editMon"
         app:layout_constraintTop_toTopOf="@id/fridayText" />
 
@@ -169,14 +164,13 @@
         app:layout_constraintTop_toBottomOf="@id/fridayText"
         tools:layout_editor_absoluteX="3dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/editSat"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Closed"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/editMon"
         app:layout_constraintTop_toTopOf="@id/saturdayText" />
 
@@ -202,14 +196,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.77" />
 
-    <EditText
+    <TextView
         android:id="@+id/editSun"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:text="Closed"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/editMon"
         app:layout_constraintTop_toTopOf="@id/sundayText" />
 
