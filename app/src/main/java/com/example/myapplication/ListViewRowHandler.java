@@ -82,7 +82,7 @@ public class ListViewRowHandler extends BaseAdapter implements ListAdapter {
             @Override
             public void onClick(View v) {
                 //do something
-                System.out.println("yaaaa");
+                System.out.println("yaaaa");//???? what is this -angus
                 Intent i = new Intent(context, UpdateService.class);
                 Bundle b=new Bundle();
                 b.putStringArrayList("KEY",(ArrayList<String>)list);

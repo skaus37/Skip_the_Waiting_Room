@@ -87,8 +87,11 @@ public class ListServiceHandler extends BaseAdapter implements ListAdapter {
                     }
                 });
 
+
+
                 Intent intent = new Intent(context, EmployeeEditService.class);
                 context.startActivity(intent);
+
 
                 //});
             }
