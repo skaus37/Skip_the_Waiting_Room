@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -66,9 +67,11 @@ public class ProfileActivity extends AppCompatActivity {
             docData.put("updated","yes");
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("users").document(user.getEmail()).set(docData);
+            db.collection("users").document(user.getEmail()).update(docData);
 
             finish();
+            Intent i = new Intent(this, EmployeeActivity.class);
+            startActivity(i);
         }
     }
 

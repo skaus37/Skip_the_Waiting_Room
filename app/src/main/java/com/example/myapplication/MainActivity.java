@@ -88,8 +88,12 @@ public class MainActivity extends AppCompatActivity {
                                                     // Start employee activity
                                                     Intent intent = new Intent(this, ProfileActivity.class);
                                                     startActivity(intent);
-                                                }
-                                                else{
+                                                } else if(profile.equals("yes")){
+                                                    System.out.println(":(");
+                                                    Intent intent = new Intent(this, EmployeeActivity.class);
+                                                    startActivity(intent);
+
+                                                } else{
                                                     Intent intent = new Intent (this, LogIn.class);
                                                     startActivity(intent);
 
