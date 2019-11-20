@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -29,13 +30,14 @@ public class EmployeeEditService extends AppCompatActivity {
     FirebaseUser user;
     ArrayList<String> serviceArray;
     ListView serviceListView;
+    ListView lView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_edit_service);
         serviceListView = (ListView) findViewById(R.id.clincList);
-
+        lView = (ListView) findViewById(R.id.serviceList);
         updateList();
         employeeList();
     }
@@ -61,10 +63,9 @@ public class EmployeeEditService extends AppCompatActivity {
 
                 //instantiate custom adapter
                 ListServiceHandler adapter = new ListServiceHandler(accountArray, this);
-                ListView lView = (ListView) findViewById(R.id.serviceList);
-                //handle listview and assign adapter
-
                 lView.setAdapter(adapter);
+                employeeList();
+
             }
         });
     }
