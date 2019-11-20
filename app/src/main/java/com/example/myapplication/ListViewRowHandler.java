@@ -90,6 +90,7 @@ public class ListViewRowHandler extends BaseAdapter implements ListAdapter {
                 i.putExtra("position", position);
                 context.startActivity(i);
 
+
             }
         });
 

@@ -40,7 +40,7 @@ public class EmployeeActivity extends AppCompatActivity {
             if (task.isSuccessful()) {
                 String firstName = task.getResult().get("firstName").toString();
                 String account = task.getResult().get("accountType").toString();
-                welcomeEmployee.setText("Welcome  " + firstName +  "You are a " + account);
+                welcomeEmployee.setText("Welcome  " + firstName +  " You are a " + account);
             }
         });
 
