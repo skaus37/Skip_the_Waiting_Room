@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.Task;
@@ -15,6 +16,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 public class EmployeeActivity extends AppCompatActivity {
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,16 @@ public class EmployeeActivity extends AppCompatActivity {
                 welcomeEmployee.setText("Welcome  " + firstName +  "You are a " + account);
             }
         });
+
+        Button updateWorkButton = (Button) findViewById(R.id.workHrs);
+        updateWorkButton.setOnClickListener((View v)->{
+            updateWork(v);
+        });
+    }
+
+    private void updateWork(View v) {
+        Intent i = new Intent(this, WorkingHours.class);
+        startActivity(i);
     }
 
 

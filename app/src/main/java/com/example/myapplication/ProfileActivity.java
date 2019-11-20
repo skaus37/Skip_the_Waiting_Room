@@ -65,6 +65,13 @@ public class ProfileActivity extends AppCompatActivity {
             docData.put("payment", payment);
             docData.put("insurance", insurance);
             docData.put("updated","yes");
+            docData.put("mon","closed");
+            docData.put("tues","closed");
+            docData.put("wed","closed");
+            docData.put("thurs","closed");
+            docData.put("fri","closed");
+            docData.put("sat","closed");
+            docData.put("sun","closed");
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             db.collection("users").document(user.getEmail()).update(docData);
