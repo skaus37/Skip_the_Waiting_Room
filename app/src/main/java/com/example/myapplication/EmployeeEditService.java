@@ -26,19 +26,25 @@ public class EmployeeEditService extends AppCompatActivity {
     Spinner optionalService;
     String selectedService;
     FirebaseAuth mAuth;
-    FirebaseUser user = mAuth.getCurrentUser();
-    String email = user.getEmail();
+    FirebaseUser user;
+    ArrayList<String> serviceArray;
+    ListView serviceListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee_edit_service);
+        serviceListView = (ListView) findViewById(R.id.clincList);
+
         updateList();
+        employeeList();
     }
 
-    public void updateList(){
+    public void updateList() {
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-        optionalService = findViewById(R.id.spinner);
+        FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
 
         database.collection("services").get().addOnCompleteListener((@NonNull Task<QuerySnapshot> task) -> {
             if (task.isSuccessful()) {
@@ -53,29 +59,39 @@ public class EmployeeEditService extends AppCompatActivity {
                 }
 
 
+                //instantiate custom adapter
+                ListServiceHandler adapter = new ListServiceHandler(accountArray, this);
+                ListView lView = (ListView) findViewById(R.id.serviceList);
+                //handle listview and assign adapter
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, accountArray);
-                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-                optionalService.setAdapter(adapter);
+                lView.setAdapter(adapter);
             }
         });
     }
-
-
-/*
-    public void addServiceButton(View view){
-        optionalService = findViewById(R.id.spinner);//i should probally just only do this once
-        selectedService = String.valueOf(optionalService.getSelectedItem());
-
-        //add selectedService to database
+    public void employeeList () {
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-        database.collection("users").document(email).get().addOnCompleteListener((@NonNull Task<DocumentSnapshot> task) -> {
-            if (task.isSuccessful()) {
-                if()
+        FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String email = user.getEmail();
+        database.collection("users").document(email).collection("services").get().addOnCompleteListener((@NonNull Task<QuerySnapshot> task1) -> {
+            if (task1.isSuccessful()) {
+                String currentUser1;
+                serviceArray = new ArrayList<>();
+                //make it impossible for the admin to deleate admin account
+                for (QueryDocumentSnapshot document : task1.getResult()) {
+                    currentUser1 = document.getId();
+                    serviceArray.add(currentUser1);
 
+
+                }
+                ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, serviceArray);
+                serviceListView.setAdapter(arrayAdapter);
+
+                    }
+                });
             }
-        });
-        //call an update listView method
-    }*/
+
+
+
 }

@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
-
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -86,15 +85,15 @@ public class ListServiceHandler extends BaseAdapter implements ListAdapter {
                         database.collection("users").document(user.getEmail()).collection("services").document(nameService).set(docData);
 
 
-
                     }
                 });
-
 
 
                 //});
             }
         });
+
+
         return view;
 
     }
