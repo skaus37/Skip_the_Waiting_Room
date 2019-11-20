@@ -9,6 +9,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,6 +42,7 @@ public class EmployeeEditService extends AppCompatActivity {
         lView = (ListView) findViewById(R.id.serviceList);
         updateList();
         employeeList();
+        deleteAccounts();
     }
 
     public void updateList() {
@@ -93,6 +96,25 @@ public class EmployeeEditService extends AppCompatActivity {
                 });
             }
 
+    public void deleteAccounts() {
+        FirebaseFirestore database = FirebaseFirestore.getInstance();
+        FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String email = user.getEmail();
 
+
+        serviceListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String serviceName = serviceArray.get(i);
+                database.collection("users").document(email).collection("services").document(serviceName).delete();
+                employeeList();
+                Toast.makeText(EmployeeEditService.this, "Service Deleted", Toast.LENGTH_LONG).show();
+                return true;
+            }
+
+        });
+    }
 
 }

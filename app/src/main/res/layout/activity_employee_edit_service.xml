@@ -6,14 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".EmployeeEditService">
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:text="Hold the service you'd like to delete for one second and let go"
+        app:layout_constraintBottom_toTopOf="@+id/clincList"
+        app:layout_constraintEnd_toStartOf="@+id/clincList"
+        app:layout_constraintStart_toEndOf="@+id/instructionText"
+        app:layout_constraintTop_toBottomOf="@+id/instructionText" />
+
+    <TextView
+        android:id="@+id/instructionText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="187dp"
+        android:layout_marginBottom="10dp"
+        android:text="List of Services Currently Offered"
+        app:layout_constraintBottom_toTopOf="@+id/clincList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ListView
         android:id="@+id/clincList"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="265dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="350dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="450dp"
+        android:layout_marginBottom="600dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,13 +54,27 @@
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="500dp"
+        android:layout_marginTop="600dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.457"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="100dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="165dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="178dp"
+        android:layout_marginBottom="25dp"
+        android:text="Service Choices"
+        app:layout_constraintBottom_toTopOf="@+id/serviceList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clincList" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

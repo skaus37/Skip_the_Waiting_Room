@@ -62,7 +62,6 @@ public class ListServiceHandler extends BaseAdapter implements ListAdapter {
         TextView listItemText = (TextView)view.findViewById(R.id.serviceName);
         listItemText.setText(list.get(position));
         Button addButton = (Button)view.findViewById(R.id.Add_Button);
-        Button deleteButton = (Button)view.findViewById((R.id.deleteButton));
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
         addButton.setOnClickListener(new View.OnClickListener() {
