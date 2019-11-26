@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
                                                     startActivity(intent);
 
                                                 } else{
-                                                    Intent intent = new Intent (this, LogIn.class);
+                                                    Intent intent = new Intent (this, PatientActivity.class);
                                                     startActivity(intent);
 
                                                 }
