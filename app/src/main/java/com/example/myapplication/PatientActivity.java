@@ -3,9 +3,12 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -34,48 +37,47 @@ public class PatientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient);
 
-        searchView = (SearchView) findViewById(R.id.searchView);
         listView = (ListView) findViewById(R.id.viewClinics);
-
-        //list = new ArrayList<>();
+        searchView = (SearchView) findViewById(R.id.searchView);
         updateList();
+
+//        Button view = (Button) findViewById(R.id.viewClinicButton);
+//        view.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //viewClinic();
+//            }
+//        });
 
 
     }
 
+    private void viewClinic() {
+        Intent i = new Intent(this, ClinicDetails.class);
+        startActivity(i);
+    }
+
     public void updateList() {
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-        FirebaseAuth mAuth;
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser user = mAuth.getCurrentUser();
         ArrayList<String> list = new ArrayList<>();
-        //String clinicName;
+
+
         database.collection("users").whereEqualTo("accountType", "employee").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-            //ArrayList<String> list = new ArrayList<>();
+
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d(TAG, document.getId() + " => " + document.getData());
                         list.add(document.get("clinicName").toString());
-                        System.out.println(document.get("clinicName").toString());
+
                     }
                 } else {
                     Log.d(TAG, "Error getting documents: ", task.getException());
                 }
-                // }
 
-//            if (task.isSuccessful()) {
-//                String currentUser;
-//
-//
-//                //ArrayList<String> list = new ArrayList<>();
-//
-//                for (QueryDocumentSnapshot document : task.getResult()) {
-//                    currentUser = document.getId();
-//                    list.add(currentUser);
-//
-//                }
+
+
             }
         });
                 //instantiate custom adapter

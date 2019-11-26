@@ -101,7 +101,7 @@ public class EditServiceActivity extends AppCompatActivity {
 
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         public void updateListView() {
-            //ArrayList<String> accountArray;
+
             Button edit = (Button)findViewById(R.id.add_btn);
 
 
@@ -155,53 +155,7 @@ public class EditServiceActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Service Updated", Toast.LENGTH_LONG).show();
     }
 
-//    public void showUpdate(String serviceName) {
-//
-//        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-//        LayoutInflater inflater = getLayoutInflater();
-//        final View dialogView = inflater.inflate(R.layout.update, null);
-//        dialogBuilder.setView(dialogView);
-//
-//        final EditText editService = (EditText) dialogView.findViewById(R.id.editTextName);
-//        final Spinner editRole  = (Spinner) dialogView.findViewById(R.id.roleOptions);
-//        final TextView spinnerView = (TextView) editRole.getSelectedView();
-//        final Button updateButton = (Button) dialogView.findViewById(R.id.updateBtn);
-//        final Button deleteButton = (Button) dialogView.findViewById(R.id.deleteBtn);
-//
-//        dialogBuilder.setTitle(serviceName);
-//        final AlertDialog b = dialogBuilder.create();
-//        b.show();
-//
-//        updateButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String name = editService.getText().toString().trim();
-//                String role = spinnerView.getText().toString();
-//                if (!TextUtils.isEmpty(name)) {
-//                    updateService(serviceId, name, role);
-//                    b.dismiss();
-//                }
-//            }
-//        });
-////        database = FirebaseFirestore.getInstance();
-////        listServices.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-////            @Override
-////            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-////                Service s = services.get(i);
-////                database.collection("services").document(String.valueOf(s)).delete();
-////                updateListView();
-////                return true;
-////            }
-////
-////        });
-//        deleteButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                deleteService(serviceId);
-//                b.dismiss();
-//            }
-//        });
-//    }
+
 
 
 

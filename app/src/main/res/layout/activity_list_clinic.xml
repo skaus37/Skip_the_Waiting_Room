@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/viewButton"
+        android:id="@+id/viewClinicButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -19,4 +19,5 @@
         android:layout_centerVertical="true"
         android:paddingLeft="8dp"
         android:textSize="18sp" />
+
 </RelativeLayout>

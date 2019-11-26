@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ClinicDetails">
+
+    <TextView
+        android:id="@+id/cName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/cAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@id/cName"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/cNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@id/cAddress"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/waitTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintTop_toBottomOf="@id/cNumber"
+        tools:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/mText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Monday:"
+        app:layout_constraintTop_toBottomOf="@id/waitTime"
+        tools:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:textSize="20dp"
+        android:text="Tuesday:"
+        app:layout_constraintTop_toBottomOf="@id/mText"/>
+
+    <TextView
+        android:id="@+id/wText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:textSize="20dp"
+        android:text="Wednesday:"
+        app:layout_constraintTop_toBottomOf="@id/tText"/>
+
+    <TextView
+        android:id="@+id/thText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:textSize="20dp"
+        android:text="Thursday:"
+        app:layout_constraintTop_toBottomOf="@id/wText"/>
+
+    <TextView
+        android:id="@+id/fText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:textSize="20dp"
+        android:text="Friday:"
+        app:layout_constraintTop_toBottomOf="@id/thText"/>
+
+    <TextView
+        android:id="@+id/saText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:textSize="20dp"
+        android:text="Saturday:"
+        app:layout_constraintTop_toBottomOf="@id/fText"/>
+
+    <TextView
+        android:id="@+id/suText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:textSize="20dp"
+        android:text="Sunday:"
+        app:layout_constraintTop_toBottomOf="@id/saText"/>
+
+    <TextView
+        android:id="@+id/eMon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@id/eTues"
+        app:layout_constraintStart_toStartOf="@id/eTues" />
+
+    <TextView
+        android:id="@+id/eTues"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:textSize="18dp"
+        app:layout_constraintLeft_toRightOf="@id/tText"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tText"
+        tools:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/eWednes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@id/eTues"
+        app:layout_constraintTop_toTopOf="@id/wText" />
+
+    <TextView
+        android:id="@+id/eFri"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@id/eMon"
+        app:layout_constraintTop_toTopOf="@id/fText" />
+
+    <TextView
+        android:id="@+id/eSat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@id/eMon"
+        app:layout_constraintTop_toTopOf="@id/saText" />
+
+    <TextView
+        android:id="@+id/eSun"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@id/eMon"
+        app:layout_constraintTop_toTopOf="@id/suText" />
+
+    <TextView
+        android:id="@+id/eThurs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:gravity="start|top"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@id/eMon"
+        app:layout_constraintTop_toTopOf="@id/thText" />
+
+    <Button
+        android:id="@+id/book"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="book appointment"
+        app:layout_constraintTop_toBottomOf="@id/suText" />
+
+    <Button
+        android:id="@+id/checkIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="check in"
+        app:layout_constraintTop_toBottomOf="@id/book" />
+
+    <Button
+        android:id="@+id/rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="rate this clinic"
+        app:layout_constraintTop_toBottomOf="@id/checkIn" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="back"
+        app:layout_constraintTop_toBottomOf="@id/rate" />
+</androidx.constraintlayout.widget.ConstraintLayout>

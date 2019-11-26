@@ -60,8 +60,20 @@ public class ListClinicHandler extends BaseAdapter implements ListAdapter {
         }
         TextView listItemText = (TextView)view.findViewById(R.id.clinicName);
         listItemText.setText(list.get(position));
-        Button addButton = (Button)view.findViewById(R.id.viewButton);
+        Button viewClinics = (Button)view.findViewById(R.id.viewClinicButton);
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
+
+        viewClinics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, ClinicDetails.class);
+                Bundle b = new Bundle();
+                b.putString("name", list.get(position));
+                i.putExtras(b);
+                context.startActivity(i);
+            }
+        });
+
 
 //        addButton.setOnClickListener(new View.OnClickListener() {
 //            @Override
