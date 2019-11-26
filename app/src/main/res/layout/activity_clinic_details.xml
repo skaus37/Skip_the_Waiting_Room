@@ -10,7 +10,6 @@
         android:id="@+id/cName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
@@ -19,7 +18,6 @@
         android:id="@+id/cAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintTop_toBottomOf="@id/cName"
         tools:textSize="24sp" />
 
@@ -27,7 +25,6 @@
         android:id="@+id/cNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintTop_toBottomOf="@id/cAddress"
         tools:textSize="24sp" />
 
@@ -35,7 +32,6 @@
         android:id="@+id/waitTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         app:layout_constraintTop_toBottomOf="@id/cNumber"
         tools:textSize="24sp" />
 
