@@ -6,11 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".BookingAppointmentUser">
 
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="272dp"
+        android:layout_height="254dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="45dp" />
+
     <ScrollView
-        android:layout_width="323dp"
-        android:layout_height="539dp"
-        tools:layout_editor_absoluteX="41dp"
-        tools:layout_editor_absoluteY="158dp">
+        android:layout_width="318dp"
+        android:layout_height="312dp"
+        tools:layout_editor_absoluteX="49dp"
+        tools:layout_editor_absoluteY="394dp">
 
         <LinearLayout
             android:id="@+id/layoutBooking"
@@ -19,8 +27,8 @@
             android:orientation="vertical">
 
             <RadioGroup
-                android:layout_width="322dp"
-                android:layout_height="530dp" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
         </LinearLayout>
     </ScrollView>
 
@@ -29,7 +37,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Select from availible times."
-        tools:layout_editor_absoluteX="120dp"
-        tools:layout_editor_absoluteY="72dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="345dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
