@@ -62,7 +62,26 @@ public class PatientActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String text) {
                 if(listAddress.contains(text) ) {
 
-                    a.getFilter().filter(text);
+                    a.getFilter().filter(text, new Filter.FilterListener() {
+                        @Override
+                        public void onFilterComplete(int count) {
+                            if(text.equals("")){
+                                displayedlist = new ArrayList<String>();
+                                for(int i=0; i<listAddress.size();i++){
+                                    System.out.println("hhhh");
+                                    displayedlist.add(listAddress.get(i).toString());
+
+
+                                }
+                            }else {
+                                displayedlist = new ArrayList<String>();
+                                for (int i = 0; i < count; i++) {
+                                    displayedlist.add(a.getItem(i).toString());
+
+                                }
+                            }
+                        }
+                    });
 
 
                 }else{
@@ -72,13 +91,23 @@ public class PatientActivity extends AppCompatActivity {
             }
             public boolean onQueryTextChange(String newText) {
 
+
                 a.getFilter().filter(newText, new Filter.FilterListener() {
                     @Override
                     public void onFilterComplete(int count) {
-                        displayedlist = new ArrayList<String>();
-                        for (int i=0; i<count; i++) {
-                            displayedlist.add(a.getItem(i).toString());
+                        if(newText.equals("")){
+                            displayedlist = new ArrayList<String>();
+                            for(int i=0; i<listAddress.size();i++){
+                                System.out.println("hhhh");
+                                displayedlist.add(listAddress.get(i).toString());
 
+                            }
+                        }else {
+                            displayedlist = new ArrayList<String>();
+                            for (int i = 0; i < count; i++) {
+                                displayedlist.add(a.getItem(i).toString());
+
+                            }
                         }
                     }
                 });
@@ -109,6 +138,7 @@ public class PatientActivity extends AppCompatActivity {
         FirebaseFirestore database = FirebaseFirestore.getInstance();
         //listName = new ArrayList<>();
         listAddress = new ArrayList<>();
+        displayedlist = new ArrayList<>();
 
 
         database.collection("users").whereEqualTo("accountType", "employee").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -120,7 +150,7 @@ public class PatientActivity extends AppCompatActivity {
                         Log.d(TAG, document.getId() + " => " + document.getData());
                         //listName.add(document.get("clinicName").toString());
                         listAddress.add(" "+document.get("clinicName").toString()+" \n "+document.get("address").toString());
-
+                        displayedlist.add(" "+document.get("clinicName").toString()+" \n "+document.get("address").toString());
                     }
                 } else {
                     Log.d(TAG, "Error getting documents: ", task.getException());
