@@ -11,8 +11,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Filter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -30,10 +32,12 @@ public class PatientActivity extends AppCompatActivity {
     SearchView searchView;
     ListView listView;
     ArrayAdapter<String > a, b;
-    ArrayList<String> listName;
+    ArrayList<String> displayedlist;
     ArrayList<String> listAddress;
     FirebaseAuth mAuth;
     FirebaseUser user;
+    Spinner spinner;
+    String service;
 
     private static final String TAG = "MyActivity";
 
@@ -43,6 +47,7 @@ public class PatientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_patient);
         Context context = this;
 
+        spinner = (Spinner) findViewById(R.id.searchByService);
 
         listView = (ListView) findViewById(R.id.viewClinics);
         searchView = (SearchView) findViewById(R.id.searchView);
@@ -59,6 +64,7 @@ public class PatientActivity extends AppCompatActivity {
 
                     a.getFilter().filter(text);
 
+
                 }else{
                     Toast.makeText(PatientActivity.this, "No Match found",Toast.LENGTH_LONG).show();
                 }
@@ -66,9 +72,18 @@ public class PatientActivity extends AppCompatActivity {
             }
             public boolean onQueryTextChange(String newText) {
 
-                a.getFilter().filter(newText);
+                a.getFilter().filter(newText, new Filter.FilterListener() {
+                    @Override
+                    public void onFilterComplete(int count) {
+                        displayedlist = new ArrayList<String>();
+                        for (int i=0; i<count; i++) {
+                            displayedlist.add(a.getItem(i).toString());
 
-                //b.getFilter().filter(newText);
+                        }
+                    }
+                });
+
+
                 return false;
             }
         });
@@ -78,7 +93,7 @@ public class PatientActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(context, ClinicDetails.class);
                 Bundle bu = new Bundle();
-                bu.putString("name", listAddress.get(position).substring(0, listAddress.get(position).indexOf("\n")).trim());
+                bu.putString("name", displayedlist.get(position).substring(0, displayedlist.get(position).indexOf("\n")).trim());
                 i.putExtras(bu);
                 context.startActivity(i);
             }
@@ -92,7 +107,7 @@ public class PatientActivity extends AppCompatActivity {
 
     public void updateList() {
         FirebaseFirestore database = FirebaseFirestore.getInstance();
-        listName = new ArrayList<>();
+        //listName = new ArrayList<>();
         listAddress = new ArrayList<>();
 
 
@@ -103,7 +118,7 @@ public class PatientActivity extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     for (QueryDocumentSnapshot document : task.getResult()) {
                         Log.d(TAG, document.getId() + " => " + document.getData());
-                        listName.add(document.get("clinicName").toString());
+                        //listName.add(document.get("clinicName").toString());
                         listAddress.add(" "+document.get("clinicName").toString()+" \n "+document.get("address").toString());
 
                     }
