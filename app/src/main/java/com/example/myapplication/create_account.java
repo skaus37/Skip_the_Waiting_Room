@@ -84,10 +84,10 @@ public class create_account extends AppCompatActivity {
 
 
     public void newAccount(View view) {
-        EditText passText = (EditText)findViewById(R.id.passwordEnter);
-        EditText firstText = (EditText)findViewById(R.id.firstName);
-        EditText lastText = (EditText)findViewById(R.id.lastName);
-        EditText emailText = (EditText)findViewById(R.id.emailEnter);
+        EditText passText = findViewById(R.id.passwordEnter);
+        EditText firstText = findViewById(R.id.firstName);
+        EditText lastText = findViewById(R.id.lastName);
+        EditText emailText = findViewById(R.id.emailEnter);
         //RadioButton patientBox = (RadioButton)findViewById(R.id.patient);
         //RadioButton employeeBox = (RadioButton)findViewById((R.id.employee));
 
