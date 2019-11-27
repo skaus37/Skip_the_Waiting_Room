@@ -8,4 +8,5 @@
         <item>staff</item>
     </string-array>
     <string name="title_activity_admin_account_management">AdminAccountManagement</string>
+    <string name="title_activity_booking_appointment_user">BookingAppointmentUser</string>
 </resources>

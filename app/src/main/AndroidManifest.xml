@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RateClinicUserView"></activity>
+        <activity
+            android:name=".BookingAppointmentUser"
+            android:label="@string/title_activity_booking_appointment_user"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".RateClinicUserView" />
         <activity android:name=".ClinicDetails" />
         <activity android:name=".ListClinicHandler" />
         <activity android:name=".PatientActivity" />

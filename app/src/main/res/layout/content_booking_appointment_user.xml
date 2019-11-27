@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BookingAppointmentUser">
+
+    <ScrollView
+        android:layout_width="323dp"
+        android:layout_height="539dp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="158dp">
+
+        <LinearLayout
+            android:id="@+id/layoutBooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:layout_width="322dp"
+                android:layout_height="530dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select from availible times."
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
