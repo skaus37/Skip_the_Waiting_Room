@@ -8,17 +8,25 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.CalendarView;
+import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+
 
 public class BookingAppointmentUser extends AppCompatActivity {
     //represents start and end time of a particular day
+    int d,m,y;
     int startHour;
     int startMin;
     int endHour;
     int endMin;
+
+    String newDate;
 
     //current day
     String currentDay;
@@ -45,8 +53,8 @@ public class BookingAppointmentUser extends AppCompatActivity {
 
     }
 
-    public void getDayofWeek(){
-        CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView);
+    public void getDayOfWeek(){
+        CalendarView calendarView = findViewById(R.id.calendarView);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -71,22 +79,19 @@ public class BookingAppointmentUser extends AppCompatActivity {
                         currentDay= "fri";
                     case Calendar.SATURDAY:
                         currentDay= "sat";
-
-
-
                 }
+                m = month + 1;
+                d = dayOfMonth;
+                y = year;
 
+                // output to log cat **not sure how to format year to two places here**
+                newDate = y+"-"+m+"-"+d;
 
-
+                System.out.println(newDate);
+                return;
 
             }
         });
-
-
-
-
-
-
     }
 
 
