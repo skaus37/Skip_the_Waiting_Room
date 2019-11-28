@@ -48,6 +48,11 @@ public class EmployeeActivity extends AppCompatActivity {
         updateWorkButton.setOnClickListener((View v)->{
             updateWork(v);
         });
+
+        Button logOutButton = findViewById(R.id.logOutButton);
+        logOutButton.setOnClickListener((View v)->{
+            LogOutClick(v);
+        });
     }
 
     private void updateWork(View v) {
@@ -61,6 +66,17 @@ public class EmployeeActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EmployeeEditService.class);
         startActivity(intent);
 
+    }
+
+    //log out Onclick
+    public void LogOutClick(View view){
+        //insert log out code
+        FirebaseAuth.getInstance().signOut();
+        finish();
+
+
+        Intent intent = new Intent (this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override

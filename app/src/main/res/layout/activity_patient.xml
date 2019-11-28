@@ -25,8 +25,8 @@
 
     <ListView
         android:id="@+id/viewClinics"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="400dp"
+        android:layout_height="616dp"
         android:layout_below="@id/searchSpinner"
         android:divider="#ad5"
         android:dividerHeight="2dp" />
@@ -40,4 +40,16 @@
         android:queryHint="Search by name or address" >
 
     </SearchView>
+
+    <Button
+        android:id="@+id/logOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="304dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="313dp"
+        android:text="Log out" />
 </RelativeLayout>
