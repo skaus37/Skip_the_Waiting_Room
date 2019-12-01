@@ -129,10 +129,22 @@ public class PatientActivity extends AppCompatActivity {
         });
 
 
-
+        Button logOutButton = findViewById(R.id.logOutButton);
+        logOutButton.setOnClickListener((View v)->{
+            LogOutClick(v);
+        });
             }
 
 
+    public void LogOutClick(View view){
+        //insert log out code
+        FirebaseAuth.getInstance().signOut();
+        finish();
+
+
+        Intent intent = new Intent (this, MainActivity.class);
+        startActivity(intent);
+    }
 
     public void updateList() {
         FirebaseFirestore database = FirebaseFirestore.getInstance();
