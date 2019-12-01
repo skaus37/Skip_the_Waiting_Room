@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.Rating;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -39,16 +40,17 @@ public class RateClinicUserView extends AppCompatActivity {
     FirebaseFirestore database = FirebaseFirestore.getInstance();
     String clinicEmail;
     String email;
-    int rating;
+    double rating;
     String comment="";
     String name;
+    RatingBar simpleRatingBar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rate_clinic_user_view);
-        TextView text = (TextView) findViewById(R.id.textView7);
+        simpleRatingBar = (RatingBar) findViewById(R.id.ratingBar);
 
         //initialize email
         FirebaseAuth mAuth;
@@ -81,12 +83,13 @@ public class RateClinicUserView extends AppCompatActivity {
 
 
 
+
     //making comment match what the user entered is done in another method
     public void submitReview (View view){
         Toast.makeText(this, "Review Submitted", Toast.LENGTH_SHORT).show();
 
-        RatingBar simpleRatingBar = (RatingBar) findViewById(R.id.ratingBar); // initiate a rating bar
-        rating = simpleRatingBar.getNumStars(); // get total number of stars of rating bar
+     // initiate a rating bar
+        rating = simpleRatingBar.getRating(); // get total number of stars of rating bar
         EditText textComment = findViewById(R.id.comment);
         comment = textComment.getText().toString();
 
@@ -103,6 +106,7 @@ public class RateClinicUserView extends AppCompatActivity {
             docData.put("Comment", comment);
             docData.put("Rating", rating);
             docData.put("UserEmail",email);
+
             DateFormat df = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
             String date = df.format(Calendar.getInstance().getTime());
             database.collection("review").document(clinicEmail)

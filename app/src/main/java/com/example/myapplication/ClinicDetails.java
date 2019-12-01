@@ -96,6 +96,24 @@ public class ClinicDetails extends AppCompatActivity {
             }
         });
 
+
+
+
+        //averageRating.setText("clinc email "+clinic_email);
+
+
+        averageTime();
+
+
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        averageTime();
+    }
+
+
+    private void averageTime(){
         database.collection("users").whereEqualTo("clinicName", name).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
 
             @Override
@@ -138,14 +156,6 @@ public class ClinicDetails extends AppCompatActivity {
                 }
             }
         });
-
-
-        //averageRating.setText("clinc email "+clinic_email);
-
-
-
-
-
     }
 
     private void goBack() {
