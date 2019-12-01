@@ -36,6 +36,19 @@
         tools:textSize="24sp" />
 
     <TextView
+        android:id="@+id/avg"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="410dp"
+        android:layout_marginBottom="574dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/mText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -186,6 +199,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:onClick="clickRate"
         android:text="rate this clinic"
         app:layout_constraintTop_toBottomOf="@id/checkIn" />
 
