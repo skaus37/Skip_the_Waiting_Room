@@ -42,6 +42,22 @@ public class BookingAppointmentUser extends AppCompatActivity {
 
     }
 
+    public Calendar calendarCreate (int year, int month, int dayOfMonth){
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, dayOfMonth);
+        return calendar;
+    }
+
+    public String dayOfWeek (int year, int month, int dayOfMonth){
+        m = month + 1;
+        d = dayOfMonth;
+        y = year;
+
+        // output to log cat **not sure how to format year to two places here**
+        String newDate = y+"-"+m+"-"+d;
+        return newDate;
+    }
+
     public void getDayOfWeek(){
         CalendarView calendarView = findViewById(R.id.calendarView);
 
@@ -49,8 +65,7 @@ public class BookingAppointmentUser extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
 
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(year, month, dayOfMonth);
+                Calendar calendar = calendarCreate(year, month, dayOfMonth);
                 int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
 
                 switch (dayOfWeek ) {
@@ -59,9 +74,9 @@ public class BookingAppointmentUser extends AppCompatActivity {
                     case Calendar.MONDAY:
                         currentDay= "mon";
                     case Calendar.TUESDAY:
-                        currentDay= "sun";
-                    case Calendar.WEDNESDAY:
                         currentDay= "tues";
+                    case Calendar.WEDNESDAY:
+                        currentDay= "wed";
                     case Calendar.THURSDAY:
                         currentDay= "thurs";
                     case Calendar.FRIDAY:
@@ -69,14 +84,7 @@ public class BookingAppointmentUser extends AppCompatActivity {
                     case Calendar.SATURDAY:
                         currentDay= "sat";
                 }
-                m = month + 1;
-                d = dayOfMonth;
-                y = year;
-
-                // output to log cat **not sure how to format year to two places here**
-                newDate = y+"-"+m+"-"+d;
-
-                System.out.println(newDate);
+                System.out.println(dayOfWeek(year, month, dayOfMonth));
                 return;
 
             }
